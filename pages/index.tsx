@@ -11,16 +11,25 @@ export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale)),
+      locale,
     },
   };
 }
 
 const Home: NextPage<{ locale: string }> = (props) => {
-  const todosFor = ["Hausaufgaben", "Reisen", "Projekte"];
-  const [state, setState] = useState({ dark: true, todoFor: "Family" });
+  let todosFor: string[] = [];
+  const [state, setState] = useState({ dark: true, todoFor: "" });
   const { t } = useTranslation();
 
   useEffect(() => {
+    console.log("LOCALE ", props);
+    todosFor =
+      props.locale === "de"
+        ? ["Hausaufgaben", "Reisen", "Projekte"]
+        : ["Homework", "Journeys", "Projects"];
+
+    setState({ ...state, todoFor: todosFor[0] });
+
     const interval = setInterval(() => {
       setState((_state) => {
         return {
@@ -31,7 +40,7 @@ const Home: NextPage<{ locale: string }> = (props) => {
     }, 4000);
 
     return () => clearInterval(interval);
-  });
+  }, [props]);
 
   const onThemeChange = (theme: boolean) => {
     setState({ ...state, dark: theme });
@@ -43,7 +52,6 @@ const Home: NextPage<{ locale: string }> = (props) => {
       <section className="pt-32">
         <div className="m-auto font-sans w-8/12">
           <div className="xl:text-5xl md:text-4xl text-3xl text-center">
-            <p>{props.locale}</p>
             <h1>
               {t("common:your")}{" "}
               <span className="dark:text-lime-300 text-lime-600 font-bold">
@@ -64,21 +72,16 @@ const Home: NextPage<{ locale: string }> = (props) => {
       </section>
       <section className="mt-56 m-auto xl:w-4/12 md:w-7/12 text-center">
         <div className="m-3.5 sm:mx-8">
+          <p className="mb-4">{t("common:discription1")}</p>
           <p className="mb-4">
-            Eine Todo-App mit der du ganz bequem per Link deine Liste teilen
-            kannst. Alle die den Link erhalten haben können dann an der Liste
-            arbeiten und so wird nichts vergessen!
-          </p>
-          <p className="mb-4">
-            Deine eingegebenen Todos sind dabei voll{" "}
+            {t("common:yourTodos")}{" "}
             <span className="dark:text-lime-300 text-lime-600">
-              dezentralisiert
+              {t("common:dezentralized")}
             </span>{" "}
-            und werden nur von Nutzern gesehen mit denen du deinen Link getailt
-            hast!
+            {t("common:sharedLink")}
           </p>
           <p className="mb-4">
-            Die Dezentrailisierung wurde ermöglicht mit{" "}
+            {t("common:theDezentralisation")}{" "}
             <a
               href="https://gun.eco/"
               target="_blank"

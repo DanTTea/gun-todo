@@ -1,6 +1,11 @@
 {
+    "dezentralized": "decentralized",
+    "discription1": "A todo app with which you can easily share your list via a link. Everyone who has received the link can then work on the list and nothing will be forgotten!",
+    "getStarted": "Get started now",
+    "sharedLink": "and will only be seen by users with whom you have shared your link",
+    "theDezentralisation": "Decentralization was made possible with",
+    "todos": "todos",
+    "toShare": "to share",
     "your": "Your",
-    "todos": "Todos",
-    "toShare": "to share for",
-    "getStarted": "Get started"
+    "yourTodos": "Your entered todos are full"
 }
