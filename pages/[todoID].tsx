@@ -4,13 +4,31 @@ import Layout from "../components/layout";
 import InputTextarea from "../components/textareaInput";
 import TodoList from "../components/todoList";
 import { activeToDo } from "../services/gunDB";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface TodosProps {}
 
-const Todos: FunctionComponent<TodosProps> = () => {
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale)),
+      locale,
+    },
+  };
+}
+
+export const getStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+const Todos: FunctionComponent<TodosProps> = (props) => {
   const router = useRouter();
   const { todoID } = router.query;
   console.log(router);
+  console.log("Props ", props);
 
   const [state, setState] = useState({ id: "" });
 
@@ -24,7 +42,7 @@ const Todos: FunctionComponent<TodosProps> = () => {
   return (
     <>
       <Layout>
-        <p>ID: {state.id} </p>
+        {/* <p>ID: {state.id} </p> */}
         <InputTextarea />
         <TodoList />
       </Layout>
