@@ -51,7 +51,7 @@ const InputTextarea: FunctionComponent = (props) => {
 
   return (
     <>
-      <section className="m-auto">
+      <section className="p-8">
         <form onSubmit={addItem} className="flex justify-center items-center">
           <textarea
             ref={(c) => (textarea = c)}
@@ -61,11 +61,12 @@ const InputTextarea: FunctionComponent = (props) => {
             onKeyPress={handleKeyPress}
             className="dark:bg-gray-600 w-96 text-4xl dark:text-lime-300 text-lime-600 rounded-xl p-0.5"
           />
+
           <button
             type="submit"
-            className="mx-2 w-10 h-10 dark:hover:bg-lime-600 hover:bg-lime-700 font-bold rounded-xl dark:bg-lime-300 bg-lime-600 text-white dark:text-slate-900 text-center cursor-pointer p-2"
+            className="flex-shrink-0 bg-transparent mx-2 w-10 h-10  font-bold rounded-xl  text-white dark:text-slate-900 text-center cursor-pointer p-2"
           >
-            <IoSend className="w-full h-full" />
+            <IoSend className="w-full h-full dark:text-lime-300 dark:hover:text-lime-600  text-lime-600 hover:text-lime-700 " />
           </button>
         </form>
       </section>
