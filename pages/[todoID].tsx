@@ -38,7 +38,7 @@ const Todos: FunctionComponent<TodosProps> = (props) => {
 
     activeToDo.id = todoID as string;
     setState({ id: todoID as string });
-  }, [router]);
+  }, [router, todoID]);
 
   return (
     <>

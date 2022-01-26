@@ -78,6 +78,7 @@ const Home: NextPage<{ locale: string }> = (props) => {
             <a
               href="https://gun.eco/"
               target="_blank"
+              rel="noopener noreferrer"
               className="dark:text-lime-300 text-lime-600 hover:text-lime-900 dark:hover:text-lime-600"
             >
               GUN

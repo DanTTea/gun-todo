@@ -76,7 +76,8 @@ export async function deleteNode(itemID: string) {
       .get(activeToDo.id)
       .get("items")
       .get(itemID)
-      .put(null, (ack) => {
+      // Needs to be null to delete a node
+      .put(null as any, (ack) => {
         if (ack.err) {
           rejects(ack);
         }
