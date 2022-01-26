@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import Header from "../components/header";
-import Theme from "../components/theme";
 import { useEffect, useState } from "react";
 import Layout from "../components/layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import * as uid from "uuid";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -22,7 +21,6 @@ const Home: NextPage<{ locale: string }> = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log("LOCALE ", props);
     todosFor =
       props.locale === "de"
         ? ["Hausaufgaben", "Reisen", "Projekte"]
@@ -42,11 +40,6 @@ const Home: NextPage<{ locale: string }> = (props) => {
     return () => clearInterval(interval);
   }, [props]);
 
-  const onThemeChange = (theme: boolean) => {
-    setState({ ...state, dark: theme });
-    return theme;
-  };
-
   return (
     <Layout>
       <section className="pt-32">
@@ -63,7 +56,7 @@ const Home: NextPage<{ locale: string }> = (props) => {
               <span className="font-mono font-bold">{state.todoFor}</span>
             </div>
           </div>
-          <Link href="/1234">
+          <Link href={"/" + uid.v4()}>
             <div className="dark:hover:bg-lime-600 hover:bg-lime-700 mt-6 m-auto w-36 p-2 font-bold rounded dark:bg-lime-300 bg-lime-600 text-white dark:text-slate-900 text-center cursor-pointer">
               {t("common:getStarted")}
             </div>

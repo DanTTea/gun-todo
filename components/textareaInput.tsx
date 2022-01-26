@@ -17,7 +17,7 @@ const InputTextarea: FunctionComponent = (props) => {
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter" && e.shiftKey) {
-      console.log("SHIFT ENTER");
+      // console.log("SHIFT ENTER");
     } else if (e.key === "Enter") {
       e.preventDefault();
       addItem(e);
@@ -30,7 +30,6 @@ const InputTextarea: FunctionComponent = (props) => {
 
     const textArea = target.nodeName === "TEXTAREA" ? target : target[0];
     const id = uid.v4();
-    console.log(id);
 
     // Do nothing if only whitespace
     if (textArea.value.trim() === "") {
