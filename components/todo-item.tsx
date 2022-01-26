@@ -23,7 +23,7 @@ const TodoItem: FunctionComponent<ToDoItemProps> = (props) => {
   return (
     <>
       <div
-        className={`flex items-center whitespace-pre-line w-full bg-slate-800 my-1 p-2 rounded-lg  ${
+        className={`flex items-center whitespace-pre-line w-full dark:bg-slate-800 bg-white my-1 p-2 rounded-lg  ${
           props.item.checked ? "opacity-50" : ""
         }`}
       >

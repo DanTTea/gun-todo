@@ -20,7 +20,7 @@ const TodoList: FunctionComponent<TodoListProps> = () => {
 
   return (
     <>
-      <section className="p-8 flex items-center flex-col xl:mx-64">
+      <section className="p-8 flex items-center flex-col xl:mx-72 2xl:mx-96">
         {todoState.items.map((ele) => {
           return <TodoItem item={ele} key={ele.id} />;
         })}
