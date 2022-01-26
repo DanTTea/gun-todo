@@ -12,9 +12,6 @@ export function subscribeTodo(callBack: Function) {
     .get("items")
     .map()
     .on((data, key) => {
-      console.log("_data", data);
-      console.log("_key", key);
-
       if (!data) {
         return callBack(activeToDo.items);
       }
@@ -43,9 +40,6 @@ export function subscribeTodo(callBack: Function) {
 }
 
 export async function editToDoItem(item: ToDoItem) {
-  console.log(item?.checked);
-  console.log(item?.checked ? item.checked : false);
-
   if (!activeToDo.id) {
     console.error("NO ID");
     return;
@@ -57,15 +51,12 @@ export async function editToDoItem(item: ToDoItem) {
     text: item?.text ? item.text : "",
     checked: item?.checked ? item.checked : false,
   };
-  console.log("save this item", saveItem);
 
   return new Promise<void>((resolve, rejects) => {
     gun
       .get(activeToDo.id)
       .get("items")
       .put({ [saveItem.id as string]: saveItem }, (ack) => {
-        console.log("ACK", ack);
-
         if (ack.err) {
           rejects(ack);
         }
