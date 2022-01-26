@@ -55,7 +55,9 @@ const InputTextarea: FunctionComponent = (props) => {
         <form onSubmit={addItem} className="flex justify-center items-center">
           <textarea
             ref={(c) => (textarea = c)}
-            placeholder={t("common:your")}
+            placeholder={
+              t("common:your") === "common:your" ? "" : t("common:your")
+            }
             onChange={textChange}
             onKeyPress={handleKeyPress}
             className="dark:bg-gray-600 w-96 text-4xl dark:text-lime-300 text-lime-600 rounded-xl h-2 p-2"
