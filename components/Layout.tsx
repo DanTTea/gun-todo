@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-import Theme from "./theme";
+import Theme from "./Theme";
 
 interface LayoutProps {
   children: React.ReactNode;
