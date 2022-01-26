@@ -23,7 +23,10 @@ const ShareLink: FunctionComponent<ShareLinkProps> = () => {
             Teile folgenden Link um zusammen an der Todo-liste zu arbeiten
           </div>
 
-          <p onClick={copyToClipboard} className="dark:text-lime-300">
+          <p
+            onClick={copyToClipboard}
+            className="dark:text-lime-300 text-lime-600 hover:text-lime-700 dark:hover:text-lime-600 cursor-pointer"
+          >
             {document.location.href}
           </p>
         </div>
