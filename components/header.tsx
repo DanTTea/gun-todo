@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import Language from "./Language";
+import Language from "./language";
 import ThemeToggleButton from "./theme-toggle-button";
 
 interface HeaderProps {
