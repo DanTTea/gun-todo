@@ -1,10 +1,8 @@
-import { NextPage } from "next";
 import { FunctionComponent, useEffect, useState } from "react";
-import autosize from "autosize";
-import { ToDoItem } from "../interfaces/todos";
 import { activeToDo, editToDoItem } from "../services/gunDB";
 import { IoSend } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
+import autosize from "autosize";
 
 const InputTextarea: FunctionComponent = (props) => {
   let textarea: any;
@@ -31,6 +29,11 @@ const InputTextarea: FunctionComponent = (props) => {
 
     const textArea = target.nodeName === "TEXTAREA" ? target : target[0];
     const id = activeToDo.items.length;
+
+    // Do nothing if only whitespace
+    if (!!textArea.value && textArea.value.trim()) {
+      return;
+    }
 
     editToDoItem({
       id: id.toString(),
@@ -60,7 +63,7 @@ const InputTextarea: FunctionComponent = (props) => {
             }
             onChange={textChange}
             onKeyPress={handleKeyPress}
-            className="dark:bg-gray-600 w-96 text-4xl dark:text-lime-300 text-lime-600 rounded-xl h-2 p-2"
+            className="dark:bg-gray-600 w-96 md:text-4xl text-2xl dark:text-lime-300 text-lime-600 rounded-xl h-2 p-2"
           />
 
           <button
