@@ -1,9 +1,12 @@
 {
     "dezentralized": "dezentralisiert",
     "discription1": "Eine Todo-App mit der du ganz bequem per Link deine Liste teilen kannst. Alle die den Link erhalten haben können dann an der Liste arbeiten und so wird nichts vergessen!",
+    "enterYourTodo-placeholder": "Dein Todo...",
     "getStarted": "Jetzt loslegen",
     "sharedLink": "und werden nur von Nutzern gesehen mit denen du deinen Link geteilt hast",
+    "shareLink": "Teile folgenden Link um zusammen an der Todo-Liste zu arbeiten",
     "theDezentralisation": "Die Dezentralisierung wurde ermöglicht mit",
+    "toastCopy": "Kopiert",
     "todos": "Todos",
     "toShare": "zum Teilen",
     "your": "Deine",

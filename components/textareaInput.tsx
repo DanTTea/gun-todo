@@ -59,7 +59,10 @@ const InputTextarea: FunctionComponent = (props) => {
           <textarea
             ref={(c) => (textarea = c)}
             placeholder={
-              t("common:your") === "common:your" ? "" : t("common:your")
+              t("common:enterYourTodo-placeholder") ===
+              "common:enterYourTodo-placeholder"
+                ? ""
+                : t("common:enterYourTodo-placeholder")
             }
             onChange={textChange}
             onKeyPress={handleKeyPress}

@@ -41,7 +41,7 @@ const ShareLink: FunctionComponent<ShareLinkProps> = () => {
       ) : (
         <div></div>
       )}
-      {state.showToast ? <Toast text="Kopiert" /> : null}
+      {state.showToast ? <Toast text={t("common:toastCopy")} /> : null}
     </>
   );
 };
