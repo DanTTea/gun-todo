@@ -1,25 +1,34 @@
 import { useTranslation } from "next-i18next";
 import { FunctionComponent, useEffect, useState } from "react";
+import Toast from "./toast";
 
 interface ShareLinkProps {}
 
 const ShareLink: FunctionComponent<ShareLinkProps> = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [state, setState] = useState({
+    showSharelink: false,
+    showToast: false,
+  });
   const { t } = useTranslation();
 
   useEffect(() => {
-    setIsVisible(true);
+    setState({ ...state, showSharelink: true });
   }, []);
 
   const copyToClipboard = (event: { target: any }) => {
     const { target } = event;
 
-    return navigator.clipboard.writeText(target.innerHTML);
+    navigator.clipboard.writeText(target.innerHTML);
+    setTimeout(() => {
+      setState({ ...state, showToast: false });
+    }, 1000);
+
+    return setState({ ...state, showToast: true });
   };
 
   return (
     <>
-      {isVisible ? (
+      {state.showSharelink ? (
         <div className="text-center text-sm m-8 transition duration-200">
           <div className="text-gray-400">{t("common:shareLink")}</div>
           <p
@@ -32,6 +41,7 @@ const ShareLink: FunctionComponent<ShareLinkProps> = () => {
       ) : (
         <div></div>
       )}
+      {state.showToast ? <Toast text="Kopiert" /> : null}
     </>
   );
 };
