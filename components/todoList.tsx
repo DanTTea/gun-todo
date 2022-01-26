@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { ToDoItem } from "../interfaces/todos";
 import { activeToDo, subscribeTodo } from "../services/gunDB";
-import TodoItem from "./todo-item";
+import TodoItem from "./TodoItem";
 
 interface TodoListProps {}
 

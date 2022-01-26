@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { FunctionComponent, useEffect, useState } from "react";
-import Layout from "../components/layout";
-import InputTextarea from "../components/textareaInput";
-import TodoList from "../components/todoList";
+import Layout from "../components/Layout";
+import InputTextarea from "../components/InputTextarea";
+import TodoList from "../components/TodoList";
 import { activeToDo } from "../services/gunDB";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import ShareLink from "../components/shareLink";
+import ShareLink from "../components/ShareLink";
 
 interface TodosProps {}
 

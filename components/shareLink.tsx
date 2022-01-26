@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { FunctionComponent, useEffect, useState } from "react";
-import Toast from "./toast";
+import Toast from "./Toast";
 
 interface ShareLinkProps {}
 

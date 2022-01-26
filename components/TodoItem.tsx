@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { ToDoItem } from "./../interfaces/todos";
+import { ToDoItem } from "../interfaces/todos";
 import { IoTrash } from "react-icons/io5";
 import { deleteNode, editToDoItem } from "../services/gunDB";
 
