@@ -5,6 +5,7 @@ import InputTextarea from "../components/textareaInput";
 import TodoList from "../components/todoList";
 import { activeToDo } from "../services/gunDB";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ShareLink from "../components/shareLink";
 
 interface TodosProps {}
 
@@ -44,6 +45,7 @@ const Todos: FunctionComponent<TodosProps> = (props) => {
       <Layout>
         {/* <p>ID: {state.id} </p> */}
         <InputTextarea />
+        <ShareLink />
         <TodoList />
       </Layout>
     </>
