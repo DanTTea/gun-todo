@@ -1,8 +1,9 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { activeToDo, editToDoItem } from "../services/gunDB";
+import { editToDoItem } from "../services/gunDB";
 import { IoSend } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
 import autosize from "autosize";
+import * as uid from "uuid";
 
 const InputTextarea: FunctionComponent = (props) => {
   let textarea: any;
@@ -28,7 +29,8 @@ const InputTextarea: FunctionComponent = (props) => {
     const { target } = event;
 
     const textArea = target.nodeName === "TEXTAREA" ? target : target[0];
-    const id = activeToDo.items.length;
+    const id = uid.v4();
+    console.log(id);
 
     // Do nothing if only whitespace
     if (textArea.value.trim() === "") {
