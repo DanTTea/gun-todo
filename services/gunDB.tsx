@@ -16,8 +16,7 @@ export function subscribeTodo(callBack: Function) {
       console.log("_key", key);
 
       if (!data) {
-        console.log("is deleted");
-        return;
+        return callBack(activeToDo.items);
       }
 
       const idx = activeToDo.items.findIndex((ele) => ele.id === data.id);
