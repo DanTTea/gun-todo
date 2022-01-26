@@ -31,7 +31,7 @@ const InputTextarea: FunctionComponent = (props) => {
     const id = activeToDo.items.length;
 
     // Do nothing if only whitespace
-    if (!!textArea.value && textArea.value.trim()) {
+    if (textArea.value.trim() === "") {
       return;
     }
 

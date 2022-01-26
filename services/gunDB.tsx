@@ -15,6 +15,11 @@ export function subscribeTodo(callBack: Function) {
       console.log("_data", data);
       console.log("_key", key);
 
+      if (!data) {
+        console.log("is deleted");
+        return;
+      }
+
       const idx = activeToDo.items.findIndex((ele) => ele.id === data.id);
 
       if (idx === -1) {
@@ -62,6 +67,26 @@ export async function editToDoItem(item: ToDoItem) {
       .put({ [saveItem.id as string]: saveItem }, (ack) => {
         console.log("ACK", ack);
 
+        if (ack.err) {
+          rejects(ack);
+        }
+
+        resolve();
+      });
+  });
+}
+
+export async function deleteNode(itemID: string) {
+  const idx = activeToDo.items.findIndex((item) => item.id === itemID);
+
+  activeToDo.items.splice(idx, 1);
+
+  return new Promise<void>((resolve, rejects) => {
+    gun
+      .get(activeToDo.id)
+      .get("items")
+      .get(itemID)
+      .put(null, (ack) => {
         if (ack.err) {
           rejects(ack);
         }
