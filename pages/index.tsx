@@ -17,7 +17,11 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
 const Home: NextPage<{ locale: string }> = (props) => {
   let todosFor: string[] = [];
-  const [state, setState] = useState({ dark: true, todoFor: "" });
+  const [state, setState] = useState({
+    dark: true,
+    todoFor: "",
+    initID: "/" + uid.v4(),
+  });
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -56,7 +60,7 @@ const Home: NextPage<{ locale: string }> = (props) => {
               <span className="font-mono font-bold">{state.todoFor}</span>
             </div>
           </div>
-          <Link href={"/" + uid.v4()}>
+          <Link href={state.initID}>
             <div className="dark:hover:bg-lime-600 hover:bg-lime-700 mt-6 m-auto w-36 p-2 font-bold rounded dark:bg-lime-300 bg-lime-600 text-white dark:text-slate-900 text-center cursor-pointer">
               {t("common:getStarted")}
             </div>

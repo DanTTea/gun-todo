@@ -25,15 +25,15 @@ export const getStaticPaths = () => {
   };
 };
 
-const Todos: FunctionComponent<TodosProps> = (props) => {
+const Todos: FunctionComponent<TodosProps> = () => {
   const router = useRouter();
   const { todoID } = router.query;
-  console.log(router);
-  console.log("Props ", props);
 
   const [state, setState] = useState({ id: "" });
 
   useEffect(() => {
+    console.log("Rou", router);
+
     if (!todoID) return;
 
     activeToDo.id = todoID as string;
@@ -43,7 +43,6 @@ const Todos: FunctionComponent<TodosProps> = (props) => {
   return (
     <>
       <Layout>
-        {/* <p>ID: {state.id} </p> */}
         <InputTextarea />
         <ShareLink />
         <TodoList />
