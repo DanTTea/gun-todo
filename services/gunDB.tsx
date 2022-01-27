@@ -16,6 +16,8 @@ export function subscribeTodo(callBack: Function) {
     .map()
     .on((data, key) => {
       if (!data) {
+        removeDeleteNode(key);
+
         return callBack(activeToDo.items);
       }
 
@@ -70,10 +72,6 @@ export async function editToDoItem(item: ToDoItem) {
 }
 
 export async function deleteNode(itemID: string) {
-  const idx = activeToDo.items.findIndex((item) => item.id === itemID);
-
-  activeToDo.items.splice(idx, 1);
-
   return new Promise<void>((resolve, rejects) => {
     gun
       .get(activeToDo.id)
@@ -88,4 +86,12 @@ export async function deleteNode(itemID: string) {
         resolve();
       });
   });
+}
+
+function removeDeleteNode(itemID: string) {
+  const idx = activeToDo.items.findIndex((item) => item.id === itemID);
+
+  if (idx < 0) return;
+
+  activeToDo.items.splice(idx, 1);
 }

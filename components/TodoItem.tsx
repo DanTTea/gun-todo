@@ -34,7 +34,6 @@ const TodoItem: FunctionComponent<ToDoItemProps> = (props) => {
             className="form-check-input h-4 w-4 transition duration-200 mt-1 float-left mr-2 cursor-pointer"
             type="checkbox"
             id="flexCheckDefault"
-            // defaultChecked={props.item.checked}
             checked={props.item.checked}
             onChange={checkboxChange}
           ></input>
