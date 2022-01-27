@@ -33,7 +33,6 @@ const Todos: FunctionComponent<TodosProps> = () => {
 
   useEffect(() => {
     if (!todoID) return;
-    console.log("Rou", router);
 
     activeToDo.id = todoID as string;
     setState({ id: todoID as string });

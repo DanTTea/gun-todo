@@ -12,8 +12,6 @@ const TodoList: FunctionComponent<TodoListProps> = () => {
 
   useEffect(() => {
     subscribeTodo((items: any) => {
-      console.log("_data", items);
-
       setTodoState({ items: [...items] });
     });
   }, [activeToDo.id]);

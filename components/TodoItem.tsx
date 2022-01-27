@@ -10,8 +10,6 @@ interface ToDoItemProps {
 const TodoItem: FunctionComponent<ToDoItemProps> = (props) => {
   const checkboxChange = (event: { target: any }) => {
     const { target } = event;
-    console.log(event);
-    console.log(target.checked);
 
     return editToDoItem({ ...props.item, checked: target.checked });
   };
