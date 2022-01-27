@@ -10,5 +10,6 @@
     "todos": "Todos",
     "toShare": "zum Teilen",
     "your": "Deine",
-    "yourTodos": "Deine eingegebenen Todos sind dabei voll"
+    "yourTodos": "Deine eingegebenen Todos sind dabei voll",
+    "listEmpty": "Die Liste ist leer!"
 }

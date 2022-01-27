@@ -1,1 +1,15 @@
-{"dezentralized":"decentralized","discription1":"A todo app with which you can easily share your list via a link. Everyone who has received the link can then work on the list and nothing will be forgotten!","enterYourTodo-placeholder":"Your todo...","getStarted":"Get started now","sharedLink":"and will only be seen by users with whom you have shared your link","shareLink":"Share the following link to work together on the todo list","theDezentralisation":"Decentralization was made possible with","toastCopy":"Copied","todos":"todos","toShare":"to share","your":"Your","yourTodos":"Your entered todos are full"}
+{
+    "dezentralized": "decentralized",
+    "discription1": "A todo app with which you can easily share your list via a link. Everyone who has received the link can then work on the list and nothing will be forgotten!",
+    "enterYourTodo-placeholder": "Your todo...",
+    "getStarted": "Get started now",
+    "sharedLink": "and will only be seen by users with whom you have shared your link",
+    "shareLink": "Share the following link to work together on the todo list",
+    "theDezentralisation": "Decentralization was made possible with",
+    "toastCopy": "Copied",
+    "todos": "todos",
+    "toShare": "to share",
+    "your": "Your",
+    "yourTodos": "Your entered todos are full",
+    "listEmpty": "The list is empty!"
+}
