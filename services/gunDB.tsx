@@ -4,7 +4,7 @@ import { ToDoItem, ToDoList } from "../interfaces/todos";
 
 const gun = Gun([
   // "https://gun-manhattan.herokuapp.com/gun",
-  "http://gunjs.herokuapp.com/gun",
+  "https://gunjs.herokuapp.com/gun",
 ]);
 
 export let activeToDo: ToDoList = { id: "", items: [], name: "" };
